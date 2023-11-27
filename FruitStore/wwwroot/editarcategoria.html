@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>FruitStore - La mejor fruteria de la Web</title>
+    <link href="styles.css" rel="stylesheet" />
+</head>
+<body>
+    <header></header>
+    <nav>
+        <a href="#">Principal</a>
+        <a href="categorias">Administrar Categorias</a>
+        <a href="productos">Administrar Productos</a>
+    </nav>
+    <main>
+        <form>
+            <div>
+                <h1>Editar Categoría</h1>
+
+                <label>Nombre:</label>
+                <input type="text" id="txtNombre" required="required"" />
+
+                <div class="botones">
+                    <p id="error"></p>
+                    <input type="submit" value="Guardar" id="btnGuardar" />
+                    <a href="categorias.html">
+                        <input type="button" value="Cancelar" id="btnCancelar" />
+                    </a>
+                </div>
+            </div>
+        </form>
+    </main>
+</body>
+</html>

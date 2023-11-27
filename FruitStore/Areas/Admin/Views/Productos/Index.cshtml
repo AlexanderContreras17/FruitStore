@@ -1,0 +1,36 @@
+﻿@model FruitStore.Areas.Admin.Models.AdminProductosViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h1>Administrar Productos</h1>
+
+<section class="lista">
+    <form method="post" action="~/Admin/Productos/Index">
+        <select asp-items="@(new SelectList(Model.Categorias, "Id", "Nombre"))" asp-for="IdCategoriaSeleccionada " onchange="this.form.submit()">
+            <option>--- Mostrar todos los productos---</option>
+        </select>
+    </form>
+    <ul>
+        <li><a href="~/Admin/Productos/Agregar"><img src="~/images/add.png" /> Nuevo producto</a></li>
+        @foreach(var p in Model.Productos)
+        {
+
+            <li>
+                @if (Model.IdCategoriaSeleccionada == 0)
+                {
+                    @(p.Nombre + "-" + p.Categoria)
+                }
+                else
+                {
+                    @p.Nombre
+                }
+                @p.Nombre
+            <a href="~/Admin/Productos/Editar/@p.Id" class="btnEditar"></a>
+            <a href="~/Admin/Productos/Eliminar/@p.Id" class="btnBorrar"></a>
+        </li>
+        }
+    </ul>
+
+</section>
+

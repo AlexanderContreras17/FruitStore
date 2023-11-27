@@ -1,0 +1,24 @@
+﻿@inject FruitStore.Repositories.Repository<FruitStore.Models.Entities.Categorias> repositorio
+@* el inject solamente se usa en vistas que no tienen un controlador para inyectar
+ *@<html>
+<head>
+    <title>FruitStore - La mejor fruteria de la Web</title>
+    <link href="~/styles.css" rel="stylesheet" />
+</head>
+<body>
+    <header></header>
+    <nav>
+        <a href="~/">Principal</a>
+
+        @foreach (var cat in repositorio.GetAll().OrderBy(x=>x.Nombre).Select(x=>x.Nombre))
+        {
+
+        <a href="~/Home/Productos/@cat">@cat</a>
+        }
+        
+    </nav>
+    <main>
+        @RenderBody()
+    </main>
+</body>
+</html>

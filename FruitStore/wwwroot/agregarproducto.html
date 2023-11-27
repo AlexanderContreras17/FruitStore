@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>FruitStore - La mejor fruteria de la Web</title>
+    <link href="styles.css" rel="stylesheet" />
+</head>
+<body>
+    <header></header>
+    <nav>
+        <a href="#">Principal</a>
+        <a href="categorias">Administrar Categorias</a>
+        <a href="productos">Administrar Productos</a>
+    </nav>
+    <main>
+        <form>
+            <div>
+                <h1>Agregar Producto</h1>
+
+                <label>Nombre:</label>
+                <input type="text" id="txtNombre" />
+
+
+                <label>Categoría:</label>
+                <select id="cmbCategoria">
+                    <option>-- Seleccionar categoria --</option>
+                </select>
+
+                <label>Unidad de Medida:</label>
+                <input type="text" id="txtUnidadMedida" />
+
+                <label>Precio:</label>
+                <input type="number" id="txtPrecio" />
+
+                <label>Descripción</label>
+                <textarea rows="2" cols="20"></textarea>
+
+                <label>Imagen:</label>
+                <input type="file" id="fileUpload1" accept="image/jpg" />
+
+                <img id="imagePreview" src="img_frutas/no-disponible.png" />
+
+
+                <div class="botones">
+                    <p id="error"></p>
+                    <input type="submit" value="Agregar" id="btnAgregar" />
+                    <a href="productos.html">
+                        <input type="button" value="Cancelar" id="btnCancelar" />
+                    </a>
+                </div>
+            </div>
+        </form>
+        <script>
+
+            function mostrarImagen(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        document.getElementById('imagePreview').src = e.target.result;
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+
+            document.getElementById('fileUpload1').addEventListener('change', function () {
+                mostrarImagen(this);
+            });
+        </script>
+
+    </main>
+</body>
+</html>

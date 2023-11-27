@@ -1,0 +1,22 @@
+﻿@model FruitStore.Areas.Admin.Models.AdminCategoriaViewModel
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+    <h1>Administrar Categorias</h1>
+    <section class="lista">
+        <ul>
+            <li><a href="~/Admin/Categorias/Agregar"><img src="~/images/add.png" /> Nueva categoria</a></li>
+
+
+        @foreach (var item in Model.Categorias)
+        {
+            
+            <li>
+                @item.Nombre
+                <a href="~/Admin/Categorias/Editar/@item.Id" class="btnEditar"></a>
+                <a href="~/Admin/Categorias/Eliminar/@item.Id" class="btnBorrar"></a>
+            </li>
+        }
+        </ul>
+    </section>
+
